@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Регистрация</title>
+</head>
+<body>
+     <div style="
+    width: 99vw;
+    height: 5vw;
+    background: #E91E63;">
+        <h2 flex md-truncate style="color: yellow;
+         position:absolute; 
+            left:1vw;
+            top: 0.00000001vw;""
+         ><big><strong> <em>  Мастер Фломастер</em></strong></big></h2>
+         <p style="color: yellow;
+         position:absolute; 
+            left:87vw;
+            top: 0vw;          ">Наши контакты 7(xxx)xxx-xx-xx</p>
+</div>
+
+<h1 style="
+color: #40c4ff;
+position: absolute;
+top: 5vw;
+left:39vw;
+">Регистрация</h1>
+
+<?php
+$email = $_POST['email'];// собираем введенные данные и записываемв переменные
+$pass = $_POST['pass'];
+$icq = $_POST['icq'];
+$name = $_POST['name']; 
+$sename = $_POST['sename'];
+$text .= "Е mail: $email \n"; // записываем в переменную то что собираемся писать в файл 
+$text .= "Пароль: $pass \n"; 
+$text .= "Icq: $icq \n"; 
+$text .= "Имя: $name \n"; 
+$text .= "Фамилия: $sename \n";
+$text .= "------------------------------------------------------------------------------------ \n"; // разделитель для удобства восприятия полученного текста (необязательный элемент)
+  if (!empty($email) && !empty($pass) && !empty($icq) && !empty($name) && !empty($sename)) //если все переменные имеют значения выполняем запись в файл
+    {
+    $file = fopen ("message.txt", "a+"); //открываем для дозаписи файл message.txt лежаший в одной папке с текущей страницей
+    fwrite ($file,$text); // пишем в файл
+    fclose ($file); // закрываем файл
+}
+?>
+<div style="
+position: absolute;
+top: 9vw;
+left:10vw;
+border-style: solid;
+border-color: #0000ff;
+border-radius: 5%;
+width: 80vw;
+height:30vw;
+
+">
+<form name="form1" method="post" action="index.php">
+  <label for="textfield"></label>  
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr style="
+position: absolute;
+top: 7vw;
+left:30vw;
+    "> 
+      <td><label for="textfield" >E mail</label></td>
+      <td><input type="text" name="email" id="email"></td>
+    </tr>
+    <tr style="
+position: absolute;
+top: 10vw;
+left:30vw;"">
+      <td >Пароль</td>
+      <td><input type="text" name="pass" id="pass"></td>
+    </tr>
+
+    <tr style="
+position: absolute;
+top: 13vw;
+left:30vw;"">
+      <td>Имя</td>
+      <td><input type="text" name="name" id="name"></td>
+    </tr>
+    <tr style="
+position: absolute;
+top: 16vw;
+left:30vw;"">
+      <td>Фамилия</td>
+      <td><input type="text" name="sename" id="sename"></td>
+    </tr>
+  </table>
+
+    <label for="Submit"></label>
+    <a type="submit" name="Submit" id="Submit" href="/страницы в бра/я.html" style="
+position: absolute;
+top: 20vw;
+left:30vw;
+ text-decoration: none;
+width: 300px; 
+height: 60px; 
+border-radius: 5px; 
+box-shadow: 0px 5px 15px; 
+font-size: 30px;
+color: blue;
+    "><p style="
+    position: absolute;
+    top: -1.5vw;
+    left:2vw;
+
+    "> Зарегистрироваться</p></a>
+
+</form>
+</div>
+<a href="/страницы в бра/вход.html" style="position: absolute;
+top: 40vw;
+left:40vw;
+ text-decoration: none;
+width: 300px; 
+height: 60px; 
+border-radius: 5px; 
+box-shadow: 0px 5px 15px; 
+font-size: 30px;
+color: blue;"> <p style="
+position: absolute;
+top: -1.5vw;
+left:8vw;
+
+
+">Вход</p> </a>
+</body>
+</html>
